@@ -1,389 +1,1243 @@
 <!DOCTYPE html>
-<!-- saved from url=(0038)http://localhost/widiieee_cv/index.php -->
-<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widiieee - Curriculum Vitae</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Widiieee - Full Stack Developer &amp; Creative Designer. Passionate dalam menciptakan solusi digital yang inovatif dan user-friendly.">
-    <meta name="keywords" content="full stack developer, web developer, php, laravel, javascript, react, portfolio">
+    <meta name="description" content="Widiieee - Siswa SMKN 1 Bawang Jurusan PPLG. Passionate dalam web development dan desain UI/UX.">
+    <meta name="keywords" content="widiieee, widiatri nur zahra, web developer, pplg, smkn 1 bawang, portfolio">
     <meta name="author" content="Widiieee">
-    
-    <!-- Open Graph Meta Tags -->
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Widiieee - Curriculum Vitae">
-    <meta property="og:description" content="Full Stack Developer &amp; Creative Designer">
-    <meta property="og:image" content="assets/images/profile.jpg">
+    <meta property="og:description" content="Siswa SMKN 1 Bawang - Jurusan PPLG | Web Developer & Designer">
     <meta property="og:url" content="https://widiieee.my.id">
     <meta property="og:type" content="website">
-    
-    <!-- Bootstrap CSS -->
-    <link href="./Widiieee_cv_files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS (hanya sekali) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./Widiieee_cv_files/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="./Widiieee_cv_files/css2" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./Widiieee_cv_files/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="http://localhost/widiieee_cv/assets/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary:     #4CAF50;
+            --primary-2:   #81C784;
+            --accent:      #FFC107;
+            --dark:        #2C3E50;
+            --light-bg:    #F8F9FA;
+            --white:       #FFFFFF;
+            --text-dark:   #333333;
+            --text-light:  #666666;
+            --border:      #E0E0E0;
+            --shadow-sm:   0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md:   0 5px 25px rgba(0,0,0,0.12);
+            --shadow-lg:   0 10px 40px rgba(0,0,0,0.18);
+            --transition:  all 0.3s ease;
+            --grad-primary: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+            --grad-accent:  linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* ===== UTILITY ===== */
+        .section-padding { padding: 100px 0; }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--grad-primary);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+            padding: 15px 0;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark) !important;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            margin: 0 8px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover { color: var(--primary) !important; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ===== HERO ===== */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            transition: background 1s ease;
+        }
+
+        /* Sky backgrounds */
+        .bg-morning  { background: linear-gradient(to top, #fddb92, #d1fdff); }
+        .bg-afternoon { background: linear-gradient(to top, #87CEFA, #e0f7ff); }
+        .bg-evening  { background: linear-gradient(to top, #ff9a9e, #fad0c4); }
+        .bg-night    { background: linear-gradient(to top, #141E30, #243B55); }
+
+        /* Sky elements */
+        .sky-elements { position: relative; width: 100%; height: 100%; overflow: hidden; }
+
+        .sun, .moon, .cloud, .stars {
+            position: absolute;
+            border-radius: 50%;
+            transition: opacity 1s ease;
+        }
+
+        .sun {
+            width: 80px; height: 80px;
+            background: #FFD700;
+            top: 60px; right: 100px;
+            box-shadow: 0 0 40px rgba(255,215,0,0.7);
+        }
+
+        .moon {
+            width: 60px; height: 60px;
+            background: #f4f4f4;
+            top: 80px; right: 120px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.5);
+        }
+
+        .cloud {
+            width: 160px; height: 55px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 50px;
+            top: 130px; left: 18%;
+            box-shadow: 35px 12px rgba(255,255,255,0.7), 70px 20px rgba(255,255,255,0.5);
+        }
+
+        .stars {
+            width: 3px; height: 3px;
+            background: white;
+            border-radius: 50%;
+            box-shadow:
+                30px 50px white, 90px 130px white, 210px 70px white,
+                320px 160px white, 150px 200px white, 400px 90px white,
+                500px 40px white, 250px 120px white, 60px 280px white;
+            top: 10px; left: 10px;
+        }
+
+        /* Show/hide per time */
+        .bg-morning  .sun   { opacity: 1; }
+        .bg-morning  .cloud { opacity: .75; }
+        .bg-morning  .moon,
+        .bg-morning  .stars { opacity: 0; }
+
+        .bg-afternoon .sun  { opacity: 1; }
+        .bg-afternoon .cloud{ opacity: .55; }
+        .bg-afternoon .moon,
+        .bg-afternoon .stars{ opacity: 0; }
+
+        .bg-evening  .sun   { opacity: 0.45; }
+        .bg-evening  .cloud { opacity: .65; background: rgba(248,194,145,0.8); }
+        .bg-evening  .moon,
+        .bg-evening  .stars { opacity: 0; }
+
+        .bg-night    .moon  { opacity: 1; }
+        .bg-night    .stars { opacity: 1; }
+        .bg-night    .sun,
+        .bg-night    .cloud { opacity: 0; }
+
+        /* Floating icons */
+        .floating-elements {
+            position: absolute;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.15);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { top: 60%; left: 80%; animation-delay: 1s; }
+        .floating-icon:nth-child(3) { top: 30%; left: 70%; animation-delay: 2s; }
+        .floating-icon:nth-child(4) { top: 80%; left: 20%; animation-delay: 3s; }
+        .floating-icon:nth-child(5) { top: 10%; left: 50%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33%       { transform: translateY(-20px) rotate(120deg); }
+            66%       { transform: translateY(10px) rotate(240deg); }
+        }
+
+        /* Hero content */
+        .hero-content {
+            color: white;
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #91ADC8 0%, #FAFDD6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--primary-2);
+            margin-bottom: 20px;
+            -webkit-text-fill-color: var(--primary-2);
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 500px;
+            -webkit-text-fill-color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.9);
+        }
+
+        .wave-animation {
+            display: inline-block;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25%       { transform: rotate(20deg); }
+            75%       { transform: rotate(-10deg); }
+        }
+
+        .hero-image-container { position: relative; z-index: 2; }
+
+        .profile-image { position: relative; text-align: center; }
+
+        .profile-image img {
+            width: 380px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 10px solid rgba(255,255,255,0.25);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .profile-image img:hover { transform: scale(1.04); }
+
+        .image-decoration {
+            position: absolute;
+            top: -20px; right: 10px;
+            width: 90px; height: 90px;
+            background: var(--grad-accent);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1);   opacity: 0.7; }
+            50%       { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .scroll-indicator a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40%  { transform: translateY(-10px); }
+            60%  { transform: translateY(-5px); }
+        }
+
+        /* ===== ABOUT ===== */
+        .about-image-container { position: relative; }
+
+        .about-image-container img {
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .about-image-container img:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-decoration {
+            position: absolute;
+            top: -15px; left: -15px;
+            width: 80px; height: 80px;
+            background: var(--grad-primary);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .personal-info {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin: 30px 0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .info-item i {
+            width: 38px; height: 38px;
+            background: rgba(76,175,80,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 14px;
+            flex-shrink: 0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            display: block;
+        }
+
+        .info-value {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-category {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .skills-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-item { margin-bottom: 25px; }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name  { font-weight: 500; color: var(--text-dark); }
+        .skill-percentage { font-weight: 600; color: var(--primary); }
+
+        .skill-bar {
+            height: 8px;
+            background: #E9ECEF;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--grad-primary);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 1.8s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0%   { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 25px;
+            width: 2px; height: 100%;
+            background: var(--grad-primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.animate-in { opacity: 1; transform: translateY(0); }
+
+        .timeline-marker {
+            position: absolute;
+            left: 15px; top: 0;
+            width: 20px; height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-marker { transform: scale(1.2); }
+
+        .timeline-content {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-date     { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; }
+        .timeline-title    { color: var(--dark); font-weight: 600; margin-bottom: 4px; }
+        .timeline-company  { color: var(--text-light); font-weight: 500; margin-bottom: 12px; }
+        .timeline-description { color: var(--text-dark); line-height: 1.6; margin-bottom: 16px; }
+
+        .timeline-skills, .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag, .tech-tag {
+            background: rgba(76,175,80,0.1);
+            color: var(--primary);
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        /* ===== EDUCATION ===== */
+        .education-timeline { max-width: 900px; margin: 0 auto; }
+
+        .education-item {
+            display: flex;
+            margin-bottom: 35px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .education-item.animate-in { opacity: 1; transform: translateY(0); }
+
+        .education-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .education-icon {
+            flex-shrink: 0;
+            width: 58px; height: 58px;
+            background: var(--grad-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            color: white;
+            font-size: 1.4rem;
+            transition: var(--transition);
+        }
+
+        .education-item:hover .education-icon { transform: rotate(15deg); }
+
+        .education-date  { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+        .education-title { color: var(--dark); font-weight: 600; margin-bottom: 4px; }
+        .education-school{ color: var(--text-light); font-weight: 500; margin-bottom: 10px; }
+
+        .education-achievements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .achievement-tag {
+            background: var(--grad-accent);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .portfolio-item.animate-in { opacity: 1; transform: translateY(0); }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .portfolio-image {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+
+        .portfolio-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(76,175,80,0.88);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay  { opacity: 1; }
+        .portfolio-item:hover .portfolio-image img { transform: scale(1.08); }
+
+        .portfolio-links { display: flex; gap: 14px; }
+
+        .portfolio-links a {
+            width: 48px; height: 48px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .portfolio-links a:hover {
+            background: var(--dark);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .portfolio-content { padding: 24px; }
+        .portfolio-title    { color: var(--dark); font-weight: 600; margin-bottom: 4px; }
+        .portfolio-category { color: var(--primary); font-weight: 500; font-size: 0.88rem; margin-bottom: 12px; }
+        .portfolio-description { color: var(--text-dark); line-height: 1.6; margin-bottom: 16px; }
+
+        /* ===== CONTACT ===== */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .contact-info-item.animate-in { opacity: 1; transform: translateY(0); }
+
+        .contact-info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 58px; height: 58px;
+            background: var(--grad-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+            color: white;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .contact-content h6 { color: var(--dark); font-weight: 600; margin-bottom: 4px; }
+        .contact-content p  { color: var(--text-light); margin: 0; }
+        .contact-content a  { color: var(--primary); text-decoration: none; }
+        .contact-content a:hover { text-decoration: underline; }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before { left: 100%; }
+
+        .btn-primary {
+            background: var(--grad-primary);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline-success {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 500;
+            background: transparent;
+            transition: var(--transition);
+        }
+
+        .btn-outline-success:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            padding: 40px 0;
+        }
+
+        .social-links { display: flex; gap: 12px; justify-content: flex-end; }
+
+        .social-link {
+            width: 44px; height: 44px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 48px; height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            border: none;
+        }
+
+        .back-to-top.show { opacity: 1; visibility: visible; }
+
+        .back-to-top:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.animate-in { opacity: 1; transform: translateY(0); }
+
+        /* ===== NOTIFICATION ===== */
+        .notification {
+            position: fixed;
+            top: 20px; right: 20px;
+            max-width: 380px;
+            padding: 14px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            color: white;
+            font-weight: 500;
+            transform: translateX(420px);
+            transition: transform 0.35s ease;
+            z-index: 9999;
+        }
+
+        .notification.show { transform: translateX(0); }
+        .notification-success { background: linear-gradient(135deg,#4CAF50,#66BB6A); }
+        .notification-error   { background: linear-gradient(135deg,#F44336,#EF5350); }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .notification-close {
+            background: none; border: none;
+            color: white; font-size: 1rem;
+            cursor: pointer; padding: 0;
+            margin-left: 14px; opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .notification-close:hover { opacity: 1; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .section-padding { padding: 60px 0; }
+            .hero-title { font-size: 2.4rem; }
+            .section-title { font-size: 2rem; }
+
+            .profile-image img { width: 280px; height: 280px; }
+
+            .timeline::before { left: 15px; }
+            .timeline-item { padding-left: 55px; }
+            .timeline-marker { left: 5px; }
+
+            .education-item { flex-direction: column; text-align: center; }
+            .education-icon { margin: 0 auto 18px; }
+
+            .social-links { justify-content: center; margin-top: 18px; }
+
+            .notification { right: 10px; left: 10px; max-width: none; transform: translateY(-100px); }
+            .notification.show { transform: translateY(0); }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title { font-size: 1.9rem; }
+            .profile-image img { width: 230px; height: 230px; }
+            .skills-category, .personal-info { padding: 22px; }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print */
+        @media print {
+            .navbar, .back-to-top, .floating-elements,
+            .hero-buttons, #contact, .footer { display: none !important; }
+            .hero-section { background: none !important; color: black !important; min-height: auto !important; }
+            .section-padding { padding: 20px 0 !important; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="http://localhost/widiieee_cv/index.php#home">
-                <i class="fas fa-leaf text-success"></i>
-                <span class="fw-bold">Widiieee</span>
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-leaf text-success me-2"></i>
+                <span>Widiieee</span>
             </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="http://localhost/widiieee_cv/index.php#home">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/widiieee_cv/index.php#about">Tentang Saya</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/widiieee_cv/index.php#skills">Keahlian</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/widiieee_cv/index.php#experience">Pengalaman</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/widiieee_cv/index.php#portfolio">Portofolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/widiieee_cv/index.php#education">Pendidikan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/widiieee_cv/index.php#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang Saya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Keahlian</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Pengalaman</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portofolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Pendidikan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-<!-- Hero Section -->
-<!-- <section id="home" class="hero-section">
-    <div class="hero-background">
-        <div class="floating-elements">
-            <div class="floating-icon"><i class="fas fa-code"></i></div>
-            <div class="floating-icon"><i class="fas fa-palette"></i></div>
-            <div class="floating-icon"><i class="fas fa-rocket"></i></div>
-            <div class="floating-icon"><i class="fas fa-lightbulb"></i></div>
-            <div class="floating-icon"><i class="fas fa-heart"></i></div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row align-items-center min-vh-100">
-            <div class="col-lg-6">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span id="greeting"></span> Saya <span class="text-light">Widi</span>
-                        <div class="wave-animation">👋</div>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Siswa SMKN 1 Bawang - Jurusan PPLG
-                    </p>
-                    <p class="hero-description">
-                        Saya memiliki minat di pengembangan website dan desain UI/UX, khususnya pada tampilan dan pengalaman pengguna. 
-                        Senang mengeksplorasi ide kreatif, kolaboratif, dan selalu berusaha menyampaikan gagasan dengan jelas.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary btn-lg me-3">
-                            <i class="fas fa-eye me-2"></i>Lihat Portfolio
-                        </a>
-                        <a href="#contact" class="btn btn-outline-success btn-lg">
-                            <i class="fas fa-envelope me-2"></i>Hubungi Saya
-                        </a>
-                    </div>
-                </div>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero-section">
+        <div class="hero-background bg-afternoon" id="hero-bg">
+            <div class="sky-elements">
+                <div class="sun"></div>
+                <div class="moon"></div>
+                <div class="cloud"></div>
+                <div class="stars"></div>
             </div>
-            <div class="col-lg-6">
-                <div class="hero-image-container">
-                    <div class="profile-image">
-                        <img src="assets/images/saya.JPG" alt="Widiieee Profile" class="img-fluid">
-                        <div class="image-decoration"></div>
-                    </div>
-                </div>
+            <div class="floating-elements">
+                <div class="floating-icon"><i class="fas fa-code"></i></div>
+                <div class="floating-icon"><i class="fas fa-palette"></i></div>
+                <div class="floating-icon"><i class="fas fa-rocket"></i></div>
+                <div class="floating-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="floating-icon"><i class="fas fa-heart"></i></div>
             </div>
         </div>
-    </div>
 
-    <div class="scroll-indicator">
-        <a href="#about">
-            <i class="fas fa-chevron-down"></i>
-        </a>
-    </div>
-</section> -->
-
-<!-- Hero Section -->
-<section id="home" class="hero-section">
-    <div class="hero-background bg-afternoon" id="hero-bg">
-        <!-- elemen dekorasi -->
-        <div class="sky-elements">
-            <div class="sun"></div>
-            <div class="moon"></div>
-            <div class="cloud"></div>
-            <div class="stars"></div>
-        </div>
-
-        <div class="floating-elements">
-            <div class="floating-icon"><i class="fas fa-code"></i></div>
-            <div class="floating-icon"><i class="fas fa-palette"></i></div>
-            <div class="floating-icon"><i class="fas fa-rocket"></i></div>
-            <div class="floating-icon"><i class="fas fa-lightbulb"></i></div>
-            <div class="floating-icon"><i class="fas fa-heart"></i></div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row align-items-center min-vh-100">
-            <div class="col-lg-6">
-                <div class="hero-content" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h1 class="hero-title">
-                        <span id="greeting">Selamat Siang!</span> Saya <span class="text-light">Widi</span>
-                        <div class="wave-animation">👋</div>
-                    </h1>
-                    <p class="hero-subtitle">Siswa SMKN 1 Bawang - Jurusan PPLG</p>
-                    <p class="hero-description">
-                        Saya memiliki minat di pengembangan website dan desain UI/UX, khususnya pada tampilan dan pengalaman pengguna.
-                        Senang mengeksplorasi ide kreatif, kolaboratif, dan selalu berusaha menyampaikan gagasan dengan jelas.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="http://localhost/widiieee_cv/index.php#portfolio" class="btn btn-primary btn-lg me-3">
-                            <i class="fas fa-eye me-2"></i>Lihat Portfolio
-                        </a>
-                        <a href="http://localhost/widiieee_cv/index.php#contact" class="btn btn-outline-success btn-lg">
-                            <i class="fas fa-envelope me-2"></i>Hubungi Saya
-                        </a>
+        <div class="container" style="position:relative;z-index:2;">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6 py-5">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span id="greeting">Halo!</span> Saya <span>Widi</span>
+                            <span class="wave-animation ms-2">👋</span>
+                        </h1>
+                        <p class="hero-subtitle">Siswa SMKN 1 Bawang · Jurusan PPLG</p>
+                        <p class="hero-description">
+                            Saya memiliki minat di pengembangan website dan desain UI/UX,
+                            khususnya pada tampilan dan pengalaman pengguna.
+                            Senang mengeksplorasi ide kreatif, kolaboratif, dan selalu berusaha
+                            menyampaikan gagasan dengan jelas.
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#portfolio" class="btn btn-primary btn-lg">
+                                <i class="fas fa-eye me-2"></i>Lihat Portfolio
+                            </a>
+                            <a href="#contact" class="btn btn-outline-success btn-lg">
+                                <i class="fas fa-envelope me-2"></i>Hubungi Saya
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="hero-image-container">
-                    <div class="profile-image">
-                        <img src="./Widiieee_cv_files/saya.JPG" alt="Widiieee Profile" class="img-fluid">
-                        <!-- <div class="image-decoration"></div> -->
+                <div class="col-lg-6 py-5 text-center">
+                    <div class="hero-image-container">
+                        <div class="profile-image">
+                            <!-- Ganti src dengan path gambar kamu yang benar -->
+                            <img src="assets/images/saya.JPG" alt="Widiatri Nur Zahra" class="img-fluid"
+                                 onerror="this.src='https://ui-avatars.com/api/?name=Widiieee&size=400&background=4CAF50&color=fff&bold=true'">
+                            <div class="image-decoration"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="scroll-indicator">
-        <a href="http://localhost/widiieee_cv/index.php#about"><i class="fas fa-chevron-down"></i></a>
-    </div>
-</section>
-
-
-<!-- About Section -->
-<section id="about" class="section-padding bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-header text-center mb-5" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h2 class="section-title">Tentang Saya</h2>
-                    <p class="section-subtitle">Mari berkenalan lebih dekat</p>
-                </div>
-            </div>
+        <div class="scroll-indicator">
+            <a href="#about" aria-label="Scroll ke bawah">
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
-        <div class="row align-items-center">
-            <div class="col-lg-5 mb-4 mb-lg-0">
-                <div class="about-image-container">
-                    <img src="./Widiieee_cv_files/about.jpg" alt="About Me" class="img-fluid rounded-3">
-                    <div class="about-decoration">
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5 fade-in-up">
+                <h2 class="section-title">Tentang Saya</h2>
+                <p class="section-subtitle">Mari berkenalan lebih dekat</p>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="about-image-container">
+                        <!-- Ganti src dengan path gambar about kamu -->
+                        <img src="assets/images/about.jpg" alt="About Widiieee" class="img-fluid rounded-3"
+                             onerror="this.src='https://ui-avatars.com/api/?name=W&size=500&background=81C784&color=fff&bold=true'">
+                        <div class="about-decoration"></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-7">
-                <div class="about-content" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h3 class="mb-4">Full Stack Developer dengan Passion untuk Inovasi</h3>
-                    <p class="mb-4"> Saya adalah seorang developer yang berpengalaman dalam mengembangkan aplikasi web dan mobile. Dengan background yang kuat dalam teknologi modern, saya selalu antusias untuk belajar dan mengadopsi teknologi baru. </p>
-                    <div class="personal-info">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <i class="fas fa-user text-primary"></i>
-                                    <div class="info-content">
-                                        <span class="info-label">Nama:</span>
-                                        <span class="info-value">Widiatri Nur Zahra</span>
+
+                <div class="col-lg-7">
+                    <div class="fade-in-up">
+                        <h3 class="mb-4">Web Developer &amp; Designer dengan Semangat Belajar</h3>
+                        <p class="mb-4">
+                            Saya adalah siswa jurusan PPLG (Pengembangan Perangkat Lunak dan Gim) di SMKN 1 Bawang
+                            yang antusias dalam dunia pengembangan web dan desain. Saya aktif mengembangkan diri
+                            melalui proyek nyata, organisasi, dan pengalaman kerja.
+                        </p>
+
+                        <div class="personal-info">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <i class="fas fa-user text-success"></i>
+                                        <div>
+                                            <span class="info-label">Nama</span>
+                                            <span class="info-value">Widiatri Nur Zahra</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-envelope text-success"></i>
+                                        <div>
+                                            <span class="info-label">Email</span>
+                                            <span class="info-value">widiatrinurzahra.22@gmail.com</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-phone text-success"></i>
+                                        <div>
+                                            <span class="info-label">Telepon</span>
+                                            <span class="info-value">+62 822-6447-8231</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="info-item">
-                                    <i class="fas fa-envelope text-primary"></i>
-                                    <div class="info-content">
-                                        <span class="info-label">Email:</span>
-                                        <span class="info-value">widiatrinurzahra.22@gmail.com</span>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <i class="fas fa-birthday-cake text-success"></i>
+                                        <div>
+                                            <span class="info-label">Usia</span>
+                                            <span class="info-value">18 Tahun</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-phone text-primary"></i>
-                                    <div class="info-content">
-                                        <span class="info-label">Telepon:</span>
-                                        <span class="info-value">+62 822-6447-8231</span>
+                                    <div class="info-item">
+                                        <i class="fas fa-map-marker-alt text-success"></i>
+                                        <div>
+                                            <span class="info-label">Lokasi</span>
+                                            <span class="info-value">Banjarnegara, Jawa Tengah</span>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <i class="fas fa-calendar text-primary"></i>
-                                    <div class="info-content">
-                                        <span class="info-label">Usia:</span>
-                                        <span class="info-value">18 Tahun</span>
-                                    </div>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-map-marker-alt text-primary"></i>
-                                    <div class="info-content"> <span class="info-label">Lokasi:</span>
-                                        <span class="info-value">Banjarnegara, Jawa Tengah</span>
-                                    </div>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-globe text-primary"></i>
-                                    <div class="info-content">
-                                        <span class="info-label">Website:</span>
-                                        <span class="info-value">widiieee.my.id</span>
+                                    <div class="info-item">
+                                        <i class="fas fa-globe text-success"></i>
+                                        <div>
+                                            <span class="info-label">Website</span>
+                                            <span class="info-value">
+                                                <a href="https://widiieee.my.id" target="_blank" rel="noopener">widiieee.my.id</a>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-4">
-                        <a href="http://localhost/widiieee_cv/assets/files/CV-Widiieee.pdf" class="btn btn-primary me-3" target="_blank">
-                            <i class="fas fa-download me-2"></i>Download CV </a>
-                        <a href="http://localhost/widiieee_cv/index.php#contact" class="btn btn-outline-success">
-                            <i class="fas fa-comments me-2"></i>Mari Ngobrol </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Skills Section -->
-<section id="skills" class="section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-header text-center mb-5" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h2 class="section-title">Keahlian Saya</h2>
-                    <p class="section-subtitle">Tools dan teknologi yang saya kuasai</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-6 mb-5">
-                <div class="skills-category animate-in">
-                    <h4 class="mb-4">
-                        <i class="fas fa-code text-primary me-2"></i>
-                        Keahlian Teknis
-                    </h4>
-                                            <div class="skill-item">
+                        <div class="mt-4 d-flex gap-3 flex-wrap">
+                            <!-- Ganti href ke path file CV yang benar -->
+                            <a href="assets/files/CV-Widiieee.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+                                <i class="fas fa-download me-2"></i>Download CV
+                            </a>
+                            <a href="#contact" class="btn btn-outline-success">
+                                <i class="fas fa-comments me-2"></i>Mari Ngobrol
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section id="skills" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center mb-5 fade-in-up">
+                <h2 class="section-title">Keahlian Saya</h2>
+                <p class="section-subtitle">Tools dan kemampuan yang saya kuasai</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="skills-category fade-in-up">
+                        <h4 class="mb-4">
+                            <i class="fas fa-code text-success me-2"></i>Keahlian Teknis
+                        </h4>
+                        <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Microsoft Office</span>
                                 <span class="skill-percentage">85%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%" style="width: 85%;"></div>
+                                <div class="skill-progress" data-width="85"></div>
                             </div>
                         </div>
-                                            <div class="skill-item">
+                        <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Web Development</span>
                                 <span class="skill-percentage">10%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="10%" style="width: 10%;"></div>
+                                <div class="skill-progress" data-width="10"></div>
                             </div>
                         </div>
-                                            <div class="skill-item">
+                        <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Graphic Design</span>
                                 <span class="skill-percentage">78%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="78%" style="width: 78%;"></div>
+                                <div class="skill-progress" data-width="78"></div>
                             </div>
                         </div>
-                                            <div class="skill-item">
+                        <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">English</span>
                                 <span class="skill-percentage">15%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="15%" style="width: 15%;"></div>
+                                <div class="skill-progress" data-width="15"></div>
                             </div>
                         </div>
-                                    </div>
-            </div>
-            <div class="col-lg-6 mb-5">
-                <div class="skills-category animate-in">
-                    <h4 class="mb-4">
-                        <i class="fas fa-heart text-success me-2"></i>
-                        Keahlian Non Teknis
-                    </h4>
-                                            <div class="skill-item">
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="skills-category fade-in-up">
+                        <h4 class="mb-4">
+                            <i class="fas fa-heart text-success me-2"></i>Keahlian Non-Teknis
+                        </h4>
+                        <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Team Work</span>
                                 <span class="skill-percentage">90%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%" style="width: 90%;"></div>
+                                <div class="skill-progress" data-width="90"></div>
                             </div>
                         </div>
-                                            <div class="skill-item">
+                        <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Responsible</span>
                                 <span class="skill-percentage">95%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="95%" style="width: 95%;"></div>
+                                <div class="skill-progress" data-width="95"></div>
                             </div>
                         </div>
-                                            <div class="skill-item">
+                        <div class="skill-item">
                             <div class="skill-info">
                                 <span class="skill-name">Communication</span>
                                 <span class="skill-percentage">90%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%" style="width: 90%;"></div>
+                                <div class="skill-progress" data-width="90"></div>
                             </div>
                         </div>
-                                    </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="section-padding">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-header text-center mb-5" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                        <h2 class="section-title">Portofolio</h2>
-                        <p class="section-subtitle">Projek dan Karya yang Pernah Saya Buat</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item animate-in">
-                        <div class="portfolio-image"> <img src="./Widiieee_cv_files/Screenshot 2025-08-17 190612.png" class="img-fluid">
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section id="experience" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5 fade-in-up">
+                <h2 class="section-title">Pengalaman</h2>
+                <p class="section-subtitle">Pengalaman Akademis dan Non-Akademis</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 – 2025</div>
+                        <h5 class="timeline-title">Sekretaris</h5>
+                        <p class="timeline-company">PSPG (Perhimpunan Siswa Pengembangan Perangkat Lunak dan Gim)</p>
+                        <p class="timeline-description">
+                            Bertanggung jawab sebagai sekretaris organisasi PSPG, mengelola administrasi, 
+                            dokumentasi kegiatan, dan koordinasi antar anggota untuk mendukung kelancaran program organisasi.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">Administrasi</span>
+                            <span class="skill-tag">Koordinasi</span>
+                            <span class="skill-tag">Dokumentasi</span>
+                            <span class="skill-tag">Kepemimpinan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h5 class="timeline-title">Live Sales &amp; Desain Konten</h5>
+                        <p class="timeline-company">Shopkey</p>
+                        <p class="timeline-description">
+                            Menjalankan live sales di platform e-commerce serta membuat konten desain visual 
+                            untuk keperluan promosi produk, meningkatkan engagement dan penjualan.
+                        </p>
+                        <div class="timeline-skills">
+                            <span class="skill-tag">Live Streaming</span>
+                            <span class="skill-tag">Graphic Design</span>
+                            <span class="skill-tag">Content Creation</span>
+                            <span class="skill-tag">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO SECTION ===== -->
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center mb-5 fade-in-up">
+                <h2 class="section-title">Portofolio</h2>
+                <p class="section-subtitle">Projek dan karya yang pernah saya buat</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <!-- Ganti src ke path screenshot project kamu -->
+                            <img src="assets/images/portfolio/pos.png" alt="Website POS"
+                                 onerror="this.src='https://placehold.co/600x400/4CAF50/white?text=Website+POS'">
                             <div class="portfolio-overlay">
-                                <div class="portfolio-links"> <a href="./Widiieee_cv_files/Screenshot 2025-08-17 190612.png" class="portfolio-lightbox">
+                                <div class="portfolio-links">
+                                    <a href="assets/images/portfolio/pos.png" class="portfolio-lightbox" aria-label="Lihat gambar">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="http://localhost/widiieee_cv/%3Cbr%20/%3E%3Cb%3EWarning%3C/b%3E:%20%20Trying%20to%20access%20array%20offset%20on%20value%20of%20type%20null%20in%20%3Cb%3EC:/laragon/www/widiieee_cv/index.php%3C/b%3E%20on%20line%20%3Cb%3E292%3C/b%3E%3Cbr%20/%3E" target="_blank">
+                                    <!-- Isi href dengan link demo jika ada, atau hapus jika tidak ada -->
+                                    <a href="#" aria-label="Lihat demo" title="Demo belum tersedia">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
@@ -392,115 +1246,135 @@
                         <div class="portfolio-content">
                             <h5 class="portfolio-title">Website POS</h5>
                             <p class="portfolio-category">Web Application</p>
-                            <p class="portfolio-description">Deskripsi</p>
-                            <!-- <div class="portfolio-tech"> <span class="tech-tag">Laravel</span> <span class="tech-tag">Vue.js</span> <span class="tech-tag">MySQL</span> </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<!-- Experience Section -->
-<section id="experience" class="section-padding bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-header text-center mb-5" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <h2 class="section-title">Pengalaman</h2>
-                    <p class="section-subtitle">Pengalaman Akademis dan Non Akademis</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Satu timeline container -->
-        <div class="timeline">
-                            <div class="timeline-item animate-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2024-2025</div>
-                        <h5 class="timeline-title">Sekretaris</h5>
-                        <p class="timeline-company">PSPG </p>
-                        <p class="timeline-description">Menjadi sekretaris di Perhimpunan Siswa Pengembangan Perangkat Lunak dan Gim (PSPG)</p>
-                        <div class="timeline-skills">
-                            <span class="skill-tag">Laravel</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                        </div>
-                    </div>
-                </div>
-                            <div class="timeline-item animate-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025</div>
-                        <h5 class="timeline-title">Live Sales dan Desain Konten</h5>
-                        <p class="timeline-company">Shopkey</p>
-                        <p class="timeline-description">msndisdwjwil</p>
-                        <div class="timeline-skills">
-                            <span class="skill-tag">Laravel</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                        </div>
-                    </div>
-                </div>
-                    </div>
-    </div>
-</section>
-
-
-<!-- Education Section -->
-<section id="education" class="section-padding bg-light">
-            <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-header text-center mb-5" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                        <h2 class="section-title">Pendidikan</h2>
-                        <p class="section-subtitle">Perjalanan akademis saya</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="education-timeline">
-                        <div class="education-item animate-in">
-                            <div class="education-icon"> <i class="fas fa-graduation-cap"></i> </div>
-                            <div class="education-content">
-                                <div class="education-date">2020-2023</div>
-                                <h5 class="education-title">-</h5>
-                                <p class="education-school">SMP N 2 Bawang</p>
-                                <p class="education-description">akmssklwsuwoq</p>
-                                <div class="education-achievements"> <span class="achievement-tag">Cum Laude</span> <span class="achievement-tag">Best Thesis Award</span> <span class="achievement-tag">Dean's List</span> </div>
+                            <p class="portfolio-description">
+                                Aplikasi Point of Sale berbasis web untuk membantu pengelolaan transaksi penjualan,
+                                stok barang, dan laporan keuangan secara efisien.
+                            </p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Bootstrap</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Tambahkan portfolio lain di sini dengan format yang sama -->
             </div>
         </div>
     </section>
 
+    <!-- ===== EDUCATION SECTION ===== -->
+    <section id="education" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5 fade-in-up">
+                <h2 class="section-title">Pendidikan</h2>
+                <p class="section-subtitle">Perjalanan akademis saya</p>
+            </div>
 
-    <!-- Footer -->
-    <footer class="footer bg-dark text-white">
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-date">2020 – 2023</div>
+                        <h5 class="education-title">Sekolah Menengah Pertama</h5>
+                        <p class="education-school">SMP N 2 Bawang</p>
+                        <p class="education-description">
+                            Menyelesaikan pendidikan menengah pertama dengan aktif dalam berbagai kegiatan akademis dan non-akademis.
+                        </p>
+                        <!-- Hapus achievement yang tidak relevan (Cum Laude dll itu untuk S1 bukan SMP) -->
+                        <!-- Tambahkan achievement nyata jika ada, contoh: -->
+                        <!--
+                        <div class="education-achievements">
+                            <span class="achievement-tag">Peringkat 1</span>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <div class="education-date">2023 – Sekarang</div>
+                        <h5 class="education-title">SMK Jurusan PPLG</h5>
+                        <p class="education-school">SMKN 1 Bawang</p>
+                        <p class="education-description">
+                            Sedang menempuh pendidikan di jurusan Pengembangan Perangkat Lunak dan Gim (PPLG),
+                            mempelajari web development, desain UI/UX, pemrograman, dan pengembangan aplikasi.
+                        </p>
+                        <div class="education-achievements">
+                            <span class="achievement-tag">Aktif Organisasi</span>
+                            <span class="achievement-tag">Praktik Kerja Lapangan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center mb-5 fade-in-up">
+                <h2 class="section-title">Hubungi Saya</h2>
+                <p class="section-subtitle">Jangan ragu untuk menghubungi saya</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-content">
+                            <h6>Email</h6>
+                            <p><a href="mailto:widiatrinurzahra.22@gmail.com">widiatrinurzahra.22@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-content">
+                            <h6>Telepon / WhatsApp</h6>
+                            <p><a href="https://wa.me/6282264478231" target="_blank" rel="noopener">+62 822-6447-8231</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-content">
+                            <h6>Lokasi</h6>
+                            <p>Banjarnegara, Jawa Tengah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer text-white">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">© 2026 Widiieee. All rights reserved.</p>
+                    <p class="mb-0">© 2025 Widiieee · Widiatri Nur Zahra. All rights reserved.</p>
                 </div>
                 <div class="col-md-6">
-                    <div class="social-links text-md-end">
-                        <a href="https://github.com/widiieee" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <div class="social-links">
+                        <a href="https://github.com/widiieee" class="social-link" target="_blank" rel="noopener" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/widiatrinurzahra" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <a href="https://linkedin.com/in/widiatrinurzahra" class="social-link" target="_blank" rel="noopener" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://instagram.com/zahraalowvaa" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <a href="https://instagram.com/zahraalowvaa" class="social-link" target="_blank" rel="noopener" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://twitter.com/widiieee" class="social-link" target="_blank" rel="noopener noreferrer" title="Twitter">
+                        <a href="https://twitter.com/widiieee" class="social-link" target="_blank" rel="noopener" title="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="mailto:widiatrinurzahra.22@gmail.com" class="social-link" title="Email">
@@ -512,21 +1386,169 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top">
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
         <i class="fas fa-chevron-up"></i>
-    </div>
+    </button>
 
-    <!-- Loading Spinner (shown initially) -->
-    <div id="loader" class="loader" style="opacity: 0; display: none;">
-        <div class="spinner">
-            <i class="fas fa-leaf"></i>
+    <!-- Notification container -->
+    <div id="notification" class="notification">
+        <div class="notification-content">
+            <span id="notifMessage"></span>
+            <button class="notification-close" onclick="closeNotif()" aria-label="Tutup">&times;</button>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="./Widiieee_cv_files/bootstrap.bundle.min.js.download"></script>
-    <!-- Custom JS -->
-    <script src="./Widiieee_cv_files/script.js.download"></script>
+    <!-- Bootstrap JS (hanya sekali) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-</body></html>
+    <script>
+        // ===== TIME-BASED HERO BACKGROUND =====
+        function setHeroBackground() {
+            const hour = new Date().getHours();
+            const heroBg = document.getElementById('hero-bg');
+            const greeting = document.getElementById('greeting');
+
+            heroBg.className = 'hero-background';
+
+            if (hour >= 5 && hour < 11) {
+                heroBg.classList.add('bg-morning');
+                greeting.textContent = 'Selamat Pagi!';
+            } else if (hour >= 11 && hour < 15) {
+                heroBg.classList.add('bg-afternoon');
+                greeting.textContent = 'Selamat Siang!';
+            } else if (hour >= 15 && hour < 18) {
+                heroBg.classList.add('bg-afternoon');
+                greeting.textContent = 'Selamat Sore!';
+            } else if (hour >= 18 && hour < 20) {
+                heroBg.classList.add('bg-evening');
+                greeting.textContent = 'Selamat Sore!';
+            } else {
+                heroBg.classList.add('bg-night');
+                greeting.textContent = 'Selamat Malam!';
+            }
+        }
+
+        setHeroBackground();
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const mainNav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            mainNav.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('show', window.scrollY > 400);
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== INTERSECTION OBSERVER - ANIMATE ON SCROLL =====
+        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+
+                    // Animate skill bars when visible
+                    const bars = entry.target.querySelectorAll('.skill-progress[data-width]');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width') + '%';
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll(
+            '.fade-in-up, .timeline-item, .portfolio-item, ' +
+            '.skills-category, .education-item, .contact-info-item'
+        ).forEach(el => observer.observe(el));
+
+        // ===== ACTIVE NAV LINK ON SCROLL =====
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sections.forEach(s => navObserver.observe(s));
+
+        // ===== SIMPLE LIGHTBOX =====
+        document.querySelectorAll('.portfolio-lightbox').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const src = link.getAttribute('href');
+                if (!src || src === '#') return;
+
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position:fixed;inset:0;background:rgba(0,0,0,0.92);
+                    display:flex;align-items:center;justify-content:center;
+                    z-index:99999;cursor:zoom-out;
+                `;
+
+                const img = document.createElement('img');
+                img.src = src;
+                img.style.cssText = 'max-width:90%;max-height:90%;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,0.5);';
+
+                overlay.appendChild(img);
+                document.body.appendChild(overlay);
+                document.body.style.overflow = 'hidden';
+
+                overlay.addEventListener('click', () => {
+                    document.body.removeChild(overlay);
+                    document.body.style.overflow = '';
+                });
+            });
+        });
+
+        // ===== NOTIFICATION HELPER =====
+        function showNotif(msg, type = 'success') {
+            const notif = document.getElementById('notification');
+            document.getElementById('notifMessage').textContent = msg;
+            notif.className = 'notification notification-' + type + ' show';
+            setTimeout(() => notif.classList.remove('show'), 4000);
+        }
+
+        function closeNotif() {
+            document.getElementById('notification').classList.remove('show');
+        }
+
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const navHeight = mainNav.offsetHeight;
+                    const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 10;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    // Close mobile navbar if open
+                    const collapse = document.getElementById('navbarNav');
+                    if (collapse.classList.contains('show')) {
+                        bootstrap.Collapse.getInstance(collapse)?.hide();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
